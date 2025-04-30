@@ -101,46 +101,33 @@ const Navbar = () => {
         <div className="absolute inset-0 bg-background/90 backdrop-blur-lg border-b border-border/20 shadow-sm -z-10"></div>
       )}
       
-      {/* Main navbar content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Main navbar content - with reduced width */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-5">
         <nav className="flex justify-between items-center">
           {/* Logo - Simplified */}
           <Link href="/">
-            <motion.div 
-              className="flex items-center py-1 group"
-              whileHover={{ scale: 1.03 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              <div className="relative mr-1.5">
-                <FaHeartbeat className="text-2xl sm:text-3xl text-primary" />
-                <div className="absolute -inset-1 bg-primary/10 rounded-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="flex items-center py-1 group">
+              <div className="relative mr-1">
+                <FaHeartbeat className="text-2xl text-primary" />
               </div>
               
               <div className="font-heading">
-                <motion.span 
-                  className="gradient-text text-xl sm:text-2xl font-bold tracking-tight"
-                  initial={{ backgroundPosition: '0% 50%' }}
-                  whileHover={{ backgroundPosition: '100% 50%' }}
-                  transition={{ duration: 0.8 }}
-                  style={{
-                    backgroundSize: '200% auto'
-                  }}
-                >
+                <span className="gradient-text text-xl font-bold tracking-tight">
                   HealthWell
-                </motion.span>
+                </span>
               </div>
-            </motion.div>
+            </div>
           </Link>
           
-          {/* Desktop Nav - Simplified */}
-          <div className="hidden md:flex space-x-1 lg:space-x-5 items-center">
+          {/* Desktop Nav - Tighter spacing */}
+          <div className="hidden md:flex space-x-0 items-center">
             {navLinks.map((link, index) => {
               const isActive = activeSection === link.href.substring(1);
               return (
                 <a 
                   key={index} 
                   href={link.href} 
-                  className={`text-sm lg:text-base relative px-3 py-2 transition-colors duration-200 ${
+                  className={`text-sm relative px-2.5 py-2 transition-colors duration-200 ${
                     isActive 
                       ? 'text-primary font-semibold' 
                       : 'text-foreground font-medium hover:text-primary/90'
@@ -160,15 +147,15 @@ const Navbar = () => {
             })}
           </div>
           
-          {/* Contact Button (desktop) */}
+          {/* Contact Button (desktop) - more compact */}
           <a 
             href="#contact" 
-            className="hidden md:flex items-center justify-center gradient-btn text-sm lg:text-base px-5 py-2 rounded-full font-medium shadow-sm hover:shadow-md transition-shadow duration-300 text-white"
+            className="hidden md:flex items-center justify-center gradient-btn text-sm px-4 py-1.5 rounded-full font-medium shadow-sm hover:shadow-md transition-shadow duration-300 text-white ml-3"
           >
             Get Started
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
-              className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" 
+              className="h-3.5 w-3.5 ml-1.5" 
               viewBox="0 0 20 20" 
               fill="currentColor"
             >
