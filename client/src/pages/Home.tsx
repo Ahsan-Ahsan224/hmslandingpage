@@ -8,6 +8,7 @@ import HealthTools from '../components/HealthTools';
 import Gallery from '../components/Gallery';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import ScrollToTop from '../components/ScrollToTop';
 
 const Home = () => {
   useEffect(() => {
@@ -39,6 +40,9 @@ const Home = () => {
         <Contact />
       </main>
       <Footer />
+      
+      {/* Scroll to top button with circular loader */}
+      <ScrollToTop />
     </div>
   );
 };
