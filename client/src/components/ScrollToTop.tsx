@@ -62,7 +62,7 @@ const ScrollToTop = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          className="fixed right-6 bottom-6 z-50 w-14 h-14 rounded-full bg-background shadow-xl border border-border/30 flex items-center justify-center group overflow-hidden"
+          className="fixed right-6 bottom-6 z-50 w-16 h-16 rounded-full bg-background shadow-xl border-2 border-border/40 flex items-center justify-center group overflow-hidden"
           onClick={scrollToTop}
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -86,13 +86,13 @@ const ScrollToTop = () => {
           >
             {/* Background track */}
             <circle
-              className="text-border/30"
+              className="text-border/40"
               cx="50"
               cy="50"
               r={radius}
               fill="none"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="3"
             />
             
             {/* Progress indicator */}
@@ -103,7 +103,7 @@ const ScrollToTop = () => {
               r={radius}
               fill="none"
               stroke="currentColor"
-              strokeWidth="3"
+              strokeWidth="5"
               strokeLinecap="round"
               strokeDasharray={circumference}
               initial={{ strokeDashoffset: circumference }}
@@ -122,7 +122,7 @@ const ScrollToTop = () => {
           
           {/* Arrow icon with animation */}
           <motion.div
-            className="text-primary relative z-10"
+            className="text-primary relative z-10 font-bold"
             animate={{ y: [0, -3, 0] }}
             transition={{ 
               duration: 1.8, 
@@ -131,7 +131,7 @@ const ScrollToTop = () => {
               ease: "easeInOut"
             }}
           >
-            <FiArrowUp className="text-xl" />
+            <FiArrowUp className="text-2xl stroke-[3]" />
           </motion.div>
           
           {/* Hover effects */}
