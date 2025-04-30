@@ -4,12 +4,12 @@ import styles from '../styles/Hero.module.css';
 const Hero = () => {
   const fadeIn = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.8 } }
+    visible: { opacity: 1, transition: { duration: 1.2, ease: "easeOut" } }
   };
 
   const slideUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } }
   };
 
   const staggerChildren = {
@@ -17,17 +17,30 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.15,
+        delayChildren: 0.2
       }
     }
   };
 
   const item = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 }
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+  
+  const subtleFloat = {
+    animate: {
+      y: [0, -10, 0],
+      transition: {
+        duration: 5,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "easeInOut"
+      }
     }
   };
 
@@ -40,7 +53,7 @@ const Hero = () => {
         <div className="absolute top-[10vh] left-[20vw] w-[60vw] h-[60vh] bg-accent/5 rounded-full blur-3xl"></div>
       </div>
       
-      <section id="home" className="relative min-h-[90vh] flex items-start overflow-hidden pt-12 md:pt-10">
+      <section id="home" className="relative min-h-[90vh] flex items-start overflow-hidden pt-2">
         {/* Background gradient */}
         <div className="absolute inset-0 top-[-20vh] bg-gradient-to-br from-primary/5 via-background to-secondary/5 z-0"></div>
         
@@ -48,8 +61,8 @@ const Hero = () => {
         <div className="absolute top-[-10vh] right-0 w-2/3 h-2/3 bg-gradient-to-bl from-primary/20 to-transparent rounded-bl-full opacity-40 blur-3xl z-0"></div>
         <div className="absolute bottom-0 left-0 w-2/3 h-2/3 bg-gradient-to-tr from-secondary/20 to-transparent rounded-tr-full opacity-40 blur-3xl z-0"></div>
         
-        <div className="container mx-auto px-4 pt-10 pb-16 relative z-10">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12 mt-4 md:mt-0">
+        <div className="container mx-auto px-4 pt-4 pb-16 relative z-10">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12 mt-2">
             <motion.div 
               className="w-full md:w-1/2"
               initial="hidden"
@@ -128,14 +141,23 @@ const Hero = () => {
               animate="visible"
               variants={slideUp}
             >
-              <div className="relative">
+              <motion.div 
+                className="relative"
+                animate="animate"
+                variants={subtleFloat}
+              >
                 <div className="absolute -inset-4 bg-gradient-to-br from-primary/30 via-accent/20 to-secondary/30 rounded-2xl blur-xl opacity-70"></div>
                 <img 
                   src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                   alt="Health and wellness lifestyle" 
                   className="rounded-2xl shadow-2xl mx-auto max-w-full h-auto relative z-10 border border-white/20"
                 />
-                <div className="absolute top-4 -right-4 bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg z-20 border max-w-[220px]">
+                <motion.div 
+                  className="absolute top-4 -right-4 bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg z-20 border max-w-[220px]"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6, duration: 0.8 }}
+                >
                   <div className="flex items-center space-x-2 text-sm">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                     <span className="font-medium">Personalized Plans</span>
@@ -143,8 +165,13 @@ const Hero = () => {
                   <p className="text-xs text-muted-foreground mt-1">
                     Tailored health programs designed for your unique needs
                   </p>
-                </div>
-                <div className="absolute -bottom-4 -left-4 bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg z-20 border max-w-[220px]">
+                </motion.div>
+                <motion.div 
+                  className="absolute -bottom-4 -left-4 bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg z-20 border max-w-[220px]"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.8, duration: 0.8 }}
+                >
                   <div className="flex items-center space-x-2 text-sm">
                     <div className="w-3 h-3 bg-primary rounded-full"></div>
                     <span className="font-medium">Expert Guidance</span>
@@ -152,8 +179,8 @@ const Hero = () => {
                   <p className="text-xs text-muted-foreground mt-1">
                     Professional healthcare specialists available 24/7
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
