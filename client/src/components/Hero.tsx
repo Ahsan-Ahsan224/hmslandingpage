@@ -34,10 +34,10 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden pt-16">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5 z-0"></div>
+      <div className="absolute inset-0 top-[-20vh] bg-gradient-to-br from-primary/5 via-background to-secondary/5 z-0"></div>
       
       {/* Background shapes */}
-      <div className="absolute top-0 right-0 w-2/3 h-2/3 bg-gradient-to-bl from-primary/20 to-transparent rounded-bl-full opacity-40 blur-3xl z-0"></div>
+      <div className="absolute top-[-10vh] right-0 w-2/3 h-2/3 bg-gradient-to-bl from-primary/20 to-transparent rounded-bl-full opacity-40 blur-3xl z-0"></div>
       <div className="absolute bottom-0 left-0 w-2/3 h-2/3 bg-gradient-to-tr from-secondary/20 to-transparent rounded-tr-full opacity-40 blur-3xl z-0"></div>
       
       <div className="container mx-auto px-4 py-16 relative z-10">
