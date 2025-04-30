@@ -45,23 +45,23 @@ const Hero = () => {
 
   return (
     <>
-      {/* Fixed Background Elements Above Navbar */}
-      <div className="fixed top-[-25vh] left-0 right-0 h-[50vh] -z-10 pointer-events-none overflow-hidden">
+      {/* Background Elements */}
+      <div className="fixed top-0 left-0 right-0 h-[50vh] -z-10 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-[-20vw] w-[90vw] h-[90vh] bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute top-[5vh] right-[-20vw] w-[80vw] h-[80vh] bg-secondary/5 rounded-full blur-3xl"></div>
         <div className="absolute top-[10vh] left-[20vw] w-[60vw] h-[60vh] bg-accent/5 rounded-full blur-3xl"></div>
       </div>
       
-      <section id="home" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section id="home" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-16 md:pt-20">
         {/* Background gradient */}
-        <div className="absolute inset-0 top-[-20vh] bg-gradient-to-br from-primary/5 via-background to-secondary/5 z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5 z-0"></div>
         
-        {/* Background shapes - visible after scrolling */}
-        <div className="absolute top-[-10vh] right-0 w-2/3 h-2/3 bg-gradient-to-bl from-primary/20 to-transparent rounded-bl-full opacity-40 blur-3xl z-0"></div>
+        {/* Background shapes */}
+        <div className="absolute top-0 right-0 w-2/3 h-2/3 bg-gradient-to-bl from-primary/20 to-transparent rounded-bl-full opacity-40 blur-3xl z-0"></div>
         <div className="absolute bottom-0 left-0 w-2/3 h-2/3 bg-gradient-to-tr from-secondary/20 to-transparent rounded-tr-full opacity-40 blur-3xl z-0"></div>
         
         <div className="max-w-6xl mx-auto px-4 py-0 relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 -mt-20 md:-mt-24">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <motion.div 
               className="w-full md:w-1/2"
               initial="hidden"
