@@ -1,0 +1,16 @@
+.galleryItem {
+  transition: all 0.3s ease;
+  height: 200px;
+}
+
+@media (min-width: 768px) {
+  .galleryItem {
+    height: 220px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .galleryItem {
+    height: 240px;
+  }
+}
