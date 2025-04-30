@@ -32,15 +32,14 @@ const Hero = () => {
     }
   };
   
-  const subtleFloat = {
-    animate: {
-      y: [0, -10, 0],
-      transition: {
-        duration: 5,
-        repeat: Infinity,
-        repeatType: "reverse",
-        ease: "easeInOut"
-      }
+  // Animation for the floating image
+  const floatAnimation = {
+    y: [0, -10, 0],
+    transition: {
+      duration: 5,
+      repeat: Infinity,
+      repeatType: "reverse" as const,
+      ease: "easeInOut"
     }
   };
 
@@ -143,8 +142,7 @@ const Hero = () => {
             >
               <motion.div 
                 className="relative"
-                animate="animate"
-                variants={subtleFloat}
+                animate={floatAnimation}
               >
                 <div className="absolute -inset-4 bg-gradient-to-br from-primary/30 via-accent/20 to-secondary/30 rounded-2xl blur-xl opacity-70"></div>
                 <img 
