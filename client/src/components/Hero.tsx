@@ -34,9 +34,10 @@ const Hero = () => {
   return (
     <>
       {/* Fixed Background Elements Above Navbar */}
-      <div className="fixed top-0 left-0 right-0 h-[30vh] -z-10 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-20vh] left-[-15vw] w-[70vw] h-[70vh] bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-[-15vh] right-[-10vw] w-[60vw] h-[60vh] bg-secondary/5 rounded-full blur-3xl"></div>
+      <div className="fixed top-[-25vh] left-0 right-0 h-[50vh] -z-10 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-[-20vw] w-[90vw] h-[90vh] bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-[5vh] right-[-20vw] w-[80vw] h-[80vh] bg-secondary/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-[10vh] left-[20vw] w-[60vw] h-[60vh] bg-accent/5 rounded-full blur-3xl"></div>
       </div>
       
       <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden pt-16">
