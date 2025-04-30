@@ -93,22 +93,59 @@ const Navbar = () => {
           : 'py-3 sm:py-4 bg-transparent'
       }`}
     >
-      {/* Decorative gradient border at top */}
-      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-primary via-accent to-secondary"></div>
+      {/* Decorative animated gradient border at top */}
+      <div className="absolute inset-x-0 top-0 h-[3px] z-10 overflow-hidden">
+        <motion.div 
+          className="absolute inset-x-0 h-full bg-gradient-to-r from-primary via-accent to-secondary"
+          animate={{
+            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          style={{
+            backgroundSize: '200% 100%'
+          }}
+        />
+        <motion.div 
+          className="absolute inset-y-0 left-0 w-1/3 h-full bg-gradient-to-r from-primary to-transparent"
+          animate={{
+            x: ['-100%', '100%'],
+            opacity: [0, 1, 0]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            repeatDelay: 5
+          }}
+        />
+      </div>
+      
+      {/* Glassmorphism background for scroll state */}
+      <motion.div 
+        className="absolute inset-0 bg-background/70 backdrop-blur-xl border-b border-border/30 shadow-sm"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: scrolled ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+      />
       
       {/* Main navbar content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <nav className="flex justify-between items-center">
-          {/* Logo */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <nav className="flex justify-between items-center py-1">
+          {/* Logo with enhanced effects */}
           <Link href="/">
             <motion.div 
-              className="flex items-center py-1 z-10 group"
+              className="flex items-center py-1 z-10 group relative"
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <div className="relative">
+                {/* Pulsating background effect */}
                 <motion.div
-                  className="absolute -inset-1.5 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"
+                  className="absolute -inset-1.5 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-300"
                   animate={{
                     scale: [1, 1.05, 1],
                     opacity: [0.5, 0.8, 0.5]
@@ -119,11 +156,63 @@ const Navbar = () => {
                     repeatType: "reverse"
                   }}
                 />
-                <FaHeartbeat className="text-2xl sm:text-3xl relative mr-1.5 sm:mr-2 text-primary" />
+                
+                {/* Subtle particle effects around logo on hover */}
+                <motion.div
+                  className="absolute -inset-3 opacity-0 group-hover:opacity-100 pointer-events-none"
+                  initial="hidden"
+                  whileHover="visible"
+                >
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute rounded-full bg-primary/30 w-1 h-1"
+                      initial={{ 
+                        x: 0, 
+                        y: 0,
+                        opacity: 0,
+                        scale: 0
+                      }}
+                      animate={{
+                        x: Math.random() * 30 - 15,
+                        y: Math.random() * 30 - 15,
+                        opacity: [0, 0.8, 0],
+                        scale: [0, Math.random() * 0.8 + 0.5, 0]
+                      }}
+                      transition={{
+                        duration: 1.5 + Math.random(),
+                        repeat: Infinity,
+                        delay: i * 0.2,
+                        repeatDelay: Math.random() * 0.5
+                      }}
+                    />
+                  ))}
+                </motion.div>
+                
+                {/* Main logo icon with 3D effect */}
+                <div className="relative">
+                  <FaHeartbeat className="text-2xl sm:text-3xl relative mr-1.5 sm:mr-2 text-primary drop-shadow-lg" />
+                  <motion.div 
+                    className="absolute inset-0 text-2xl sm:text-3xl text-accent/30 blur-[1px]"
+                    animate={{ 
+                      x: [1, 0, 1],
+                      y: [1, 0, 1]
+                    }}
+                    transition={{ 
+                      duration: 5,
+                      repeat: Infinity,
+                      repeatType: "reverse"
+                    }}
+                  >
+                    <FaHeartbeat className="mr-1.5 sm:mr-2" />
+                  </motion.div>
+                </div>
               </div>
-              <div className="font-heading">
+              
+              {/* Logo text with animated gradient */}
+              <div className="font-heading overflow-hidden">
                 <motion.span 
-                  className="gradient-text text-xl sm:text-2xl font-bold tracking-tight relative"
+                  className="gradient-text text-xl sm:text-2xl font-bold tracking-tight relative inline-block"
                   initial={{ backgroundPosition: '0% 50%' }}
                   whileHover={{ backgroundPosition: '100% 50%' }}
                   transition={{ duration: 0.8 }}
@@ -132,13 +221,26 @@ const Navbar = () => {
                   }}
                 >
                   HealthWell
+                  
+                  {/* Text shine effect */}
+                  <motion.span 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    initial={{ x: '-100%' }}
+                    animate={{ x: '100%' }}
+                    transition={{ 
+                      duration: 1.5, 
+                      repeat: Infinity, 
+                      repeatDelay: 5
+                    }}
+                    style={{ backgroundSize: '50% 100%' }}
+                  />
                 </motion.span>
               </div>
             </motion.div>
           </Link>
           
-          {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-1 lg:space-x-8">
+          {/* Desktop Nav with 3D hover effects */}
+          <div className="hidden md:flex space-x-1 lg:space-x-6 items-center">
             {navLinks.map((link, index) => {
               const isActive = activeSection === link.href.substring(1);
               return (
@@ -146,39 +248,55 @@ const Navbar = () => {
                   key={index} 
                   href={link.href} 
                   className={`text-sm lg:text-base ${isActive ? 'text-primary font-semibold' : 'text-foreground font-medium'} 
-                    px-3 py-2 relative group overflow-hidden`}
+                    px-3 py-2 relative group overflow-hidden rounded-lg`}
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  transition={{ delay: index * 0.08, duration: 0.4 }}
+                  whileHover={{
+                    y: -2,
+                    transition: { duration: 0.2 }
+                  }}
                 >
+                  {/* Hover glow effect */}
+                  <motion.span 
+                    className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 rounded-lg z-0"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  
+                  {/* Text content */}
                   <span className="relative z-10 transition-colors duration-300">
                     {link.name}
                   </span>
                   
-                  {/* Animated underline */}
+                  {/* Animated underline with gradient */}
                   <motion.span 
-                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-accent z-0"
+                    className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary to-accent z-0"
                     initial={{ width: isActive ? '100%' : '0%', left: isActive ? '0%' : '50%' }}
                     animate={isActive ? { width: '100%', left: '0%' } : {}}
                     whileHover={{ width: '100%', left: '0%' }}
                     transition={{ duration: 0.3 }}
                   />
                   
-                  {/* Subtle hover background */}
-                  <motion.span 
-                    className="absolute inset-0 rounded-md bg-primary/5 z-0 opacity-0"
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
+                  {/* Dot indicator for active state */}
+                  {isActive && (
+                    <motion.span
+                      className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
                 </motion.a>
               );
             })}
           </div>
           
-          {/* Contact Button (desktop) */}
+          {/* Contact Button (desktop) with enhanced effects */}
           <motion.a 
             href="#contact" 
-            className="hidden md:flex gradient-btn text-sm lg:text-base px-4 lg:px-6 py-2 rounded-full font-medium shadow-md"
+            className="hidden md:flex items-center justify-center gradient-btn text-sm lg:text-base px-4 lg:px-6 py-2 rounded-full font-medium shadow-md"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 10px 25px -5px rgba(var(--primary), 0.4), 0 8px 10px -6px rgba(var(--primary), 0.2)"
@@ -186,27 +304,48 @@ const Navbar = () => {
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <span className="relative z-10">Get Started</span>
+            {/* Inner glow */}
             <motion.span 
               className="absolute inset-0 rounded-full bg-white/10 z-0"
               initial={{ scale: 0, opacity: 0 }}
               whileHover={{ scale: 1, opacity: 0.5 }}
               transition={{ duration: 0.4 }}
             />
+            
+            {/* Text content */}
+            <span className="relative z-10 flex items-center">
+              Get Started
+              
+              {/* Arrow icon with animation */}
+              <motion.svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-4 w-4 ml-1" 
+                viewBox="0 0 20 20" 
+                fill="currentColor"
+                initial={{ x: 0 }}
+                whileHover={{ x: 2 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </motion.svg>
+            </span>
           </motion.a>
           
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button with enhanced effects */}
           <motion.button
             whileTap={{ scale: 0.95 }}
             className="md:hidden z-10 w-10 h-10 flex items-center justify-center text-foreground hover:text-primary focus:outline-none transition-colors relative"
             onClick={toggleMobileMenu}
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
+            {/* Button background glow */}
             <motion.span 
-              className="absolute inset-0 rounded-full bg-primary/10 z-0 opacity-0"
+              className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 z-0 opacity-0"
               whileHover={{ opacity: 1 }}
               transition={{ duration: 0.2 }}
             />
+            
+            {/* Animated hamburger/close icon */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={mobileMenuOpen ? 'close' : 'menu'}
