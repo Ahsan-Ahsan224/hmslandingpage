@@ -119,9 +119,9 @@ const Hero = () => {
                 variants={item} 
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6"
               >
-                Your Journey To
+                Future Of
                 <span className="block gradient-text mt-1 relative">
-                  Better Health
+                  Hospital Management
                   <motion.span 
                     className="absolute bottom-1.5 left-0 right-0 h-[6px] bg-gradient-to-r from-primary/20 to-accent/10 rounded-full -z-10"
                     initial={{ scaleX: 0, originX: 0 }}
@@ -129,7 +129,7 @@ const Hero = () => {
                     transition={{ delay: 1, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                   />
                 </span>
-                <span className="block">Starts Here</span>
+                <span className="block"></span>
               </motion.h1>
               
               {/* Enhanced paragraph with slightly better line height */}
@@ -155,7 +155,7 @@ const Hero = () => {
                   }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span className="relative z-10">Explore Our Services</span>
+                  <span className="relative z-10">Our Services</span>
                   <motion.span 
                     className="absolute inset-0 bg-white/20 -z-5"
                     initial={{ x: '-100%' }}
@@ -242,53 +242,18 @@ const Hero = () => {
                 
                 {/* Main image with enhanced styling */}
                 <img 
-                  src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                  alt="Health and wellness lifestyle" 
+                   src="/hmsicon3.jpg" 
+                   alt="Hospital Management System" 
                   className="rounded-2xl shadow-2xl mx-auto max-w-full h-auto relative z-10 border border-white/30"
                   loading="eager"
                 />
+
                 
                 {/* First floating card with enhanced animation */}
-                <motion.div 
-                  className="absolute top-4 -right-4 sm:right-0 md:-right-4 lg:-right-8 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg z-20 border border-border/30 max-w-[200px] sm:max-w-[220px]"
-                  initial={{ opacity: 0, x: 30, y: 10 }}
-                  animate={{ opacity: 1, x: 0, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.8, type: "spring" }}
-                  whileHover={{ y: -3, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)" }}
-                >
-                  <div className="flex items-center space-x-2 text-sm">
-                    <motion.div 
-                      className="w-3 h-3 bg-green-500 rounded-full"
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-                    <span className="font-medium">Personalized Plans</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Tailored health programs designed for your unique needs
-                  </p>
-                </motion.div>
+                
                 
                 {/* Second floating card with enhanced animation */}
-                <motion.div 
-                  className="absolute -bottom-4 sm:bottom-0 md:-bottom-4 lg:-bottom-8 -left-4 sm:left-0 md:-left-4 lg:-left-8 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg z-20 border border-border/30 max-w-[200px] sm:max-w-[220px]"
-                  initial={{ opacity: 0, x: -30, y: -10 }}
-                  animate={{ opacity: 1, x: 0, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.8, type: "spring" }}
-                  whileHover={{ y: -3, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)" }}
-                >
-                  <div className="flex items-center space-x-2 text-sm">
-                    <motion.div 
-                      className="w-3 h-3 bg-primary rounded-full"
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                    />
-                    <span className="font-medium">Expert Guidance</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Professional healthcare specialists available 24/7
-                  </p>
-                </motion.div>
+            
               </motion.div>
             </motion.div>
           </div>

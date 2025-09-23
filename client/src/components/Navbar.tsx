@@ -74,8 +74,8 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'Services', href: '#services' },
     { name: 'Our Experts', href: '#experts' },
-    { name: 'Health Articles', href: '#articles' },
-    { name: 'Health Tools', href: '#tools' },
+    { name: 'Pricing ', href: '#pricing' },
+   
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -114,7 +114,7 @@ const Navbar = () => {
               
               <div className="font-heading">
                 <span className="gradient-text text-xl md:text-2xl font-bold tracking-tight">
-                  HealthWell
+                  HMS
                 </span>
               </div>
             </div>
@@ -235,7 +235,7 @@ const Navbar = () => {
                     <FaHeartbeat className="text-xl text-primary" />
                     <div className="absolute -inset-1 bg-primary/10 rounded-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                  <span className="gradient-text text-lg font-bold">HealthWell</span>
+                  <span className="gradient-text text-lg font-bold">HMS</span>
                 </Link>
                 <motion.button
                   onClick={closeMobileMenu}
